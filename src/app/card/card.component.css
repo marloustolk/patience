@@ -1,0 +1,77 @@
+@media (min-width: 0) {
+  .card.main {
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+    background-size:40px 70px;
+  }
+  p.top, p.bottom {
+    font-size: 2vw;
+  }
+  p.center {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 600px) and (orientation:landscape){
+  .card.main {
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    background-size:80px 140px;
+  }
+  p.top, p.bottom {
+    font-size: 1vw;
+  }
+  p.center {
+    font-size: 2vw;
+  }
+}
+
+.card {
+  background-color: #ececec;
+  border-radius: 10%;
+  box-shadow: inset 0px 0px 0px 1px #9999aa;
+  height: 95%;
+  margin-top: 5%;
+  margin-left: 10%;
+  position: absolute;
+  width: 80%;
+}
+
+.card.main {
+  background-color: #556;
+  background-image: linear-gradient(30deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
+    linear-gradient(150deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
+    linear-gradient(30deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
+    linear-gradient(150deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
+    linear-gradient(60deg, #400040 25%, transparent 25.5%, transparent 75%, #400040 75%, #400040),
+    linear-gradient(60deg, #400040 25%, transparent 25.5%, transparent 75%, #400040 75%, #400040);
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+  vertical-align: middle;
+}
+
+.card:hover {
+  background-color:#ffffff;
+  margin-left: 7.5%;
+  width: 85%;
+}
+
+.card.main:hover {
+  background-color:#7b7b8c;
+}
+
+p.top {
+  height: 30%;
+  margin: 0 0 0 5%;
+  text-align:left;
+  vertical-align: middle;
+}
+
+p.center {
+  height: 50%;
+  margin: 0 0 0 0;
+  text-align:center;
+}
+
+p.bottom {
+  height: 20%;
+  margin: 0 5% 0 0;
+  text-align:right;
+}

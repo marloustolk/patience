@@ -1,0 +1,18 @@
+<div class="menu">
+  <nav><a class="button" routerLink="">Home</a></nav>
+  <div class="button" (click)="restartGame()">Start Game</div>
+  <div class="button" (click)="stopGame()">Stop Game</div>
+</div>
+<div class="board-shape">
+  <div class="board" cdkDropListGroup>
+    <app-mainpile #mainpile [cards]="deck"></app-mainpile>
+    <div class="foundationpiles">
+      <app-foundationpile #foundationpile *ngFor="let index of foundationpiles" [nr]="index"
+                        (putEvent)="checkWon()"></app-foundationpile>
+    </div>
+    <div class="playpiles">
+      <app-playpile #playpile *ngFor="let pile of playpileCards | keyvalue" [nr]="pile.key"
+                  [cards]="pile.value" (putEvent)="checkWon()"></app-playpile>
+    </div>
+  </div>
+</div>

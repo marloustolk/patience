@@ -1,0 +1,114 @@
+.board {
+  background-color: #347575;
+  background-image: linear-gradient(30deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
+    linear-gradient(150deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
+    linear-gradient(30deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
+    linear-gradient(150deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
+    linear-gradient(60deg, #2c6363 25%, transparent 25.5%, transparent 75%, #2c6363 75%, #2c6363),
+    linear-gradient(60deg, #2c6363 25%, transparent 25.5%, transparent 75%, #2c6363 75%, #2c6363);
+  border: 5px solid #1c4040;
+  box-shadow: inset 0px 0px 0px 1px #6b9191;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+  grid-template-rows: 2% 24% 74%;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.board-shape {
+  margin: auto;
+  position: relative;
+}
+
+@media (min-width: 0) {
+  .board-shape {
+    padding-top: 60%;
+    width: 100%;
+  }
+  .board {
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+    background-size:40px 70px;
+  }
+  .button {
+    font-size: 3vw;
+  }
+}
+@media (min-width: 600px) and (orientation:landscape){
+  .board-shape {
+    padding-top: 40%;
+    width: 65%;
+  }
+  .board {
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+    background-size:80px 140px;
+  }
+  .button {
+    font-size: 1.2vw;
+  }
+}
+
+.menu {
+  width: 100%;
+  box-shadow: inset 0px 0px 0px 3px #1c4040;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 1vw;
+}
+
+.button {
+  background-color: #3c8686;
+  box-shadow: inset 0px 0px 0px 3px #2c6363;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  float: left;
+  padding: 1%;
+  text-align: center;
+  text-decoration-line: none;
+  width: 33.3%;
+}
+
+.button.dialog {
+  width: 50%;
+}
+
+.button:hover {
+  background-color: #5b9c9c;
+}
+
+nav {
+  display: inline;
+}
+
+
+h1 {
+  width: 100%;
+}
+
+.foundationpiles {
+  display: grid;
+  grid-column-start: 4;
+  grid-column-end: 8;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-template-columns: 25% 25% 25% 25%;
+  height: 100%;
+  position: relative;
+}
+
+.playpiles {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+  position: relative;
+}
