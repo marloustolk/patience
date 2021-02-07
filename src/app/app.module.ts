@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -24,6 +24,9 @@ import { PlaypileComponent } from './playpile/playpile.component';
     DragDropModule,
     MatDialogModule
     ],
+  providers: [
+    Title                   
+  ],
   declarations: [
     AppComponent,
     BoardComponent,

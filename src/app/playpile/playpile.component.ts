@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { Card } from "../card";
+import { Move } from "../move";
 
 @Component({
   selector: 'app-playpile',
@@ -11,7 +12,8 @@ import { Card } from "../card";
 export class PlaypileComponent implements OnInit {
   @Input() nr: number;
   @Input() cards: Card[];
-  @Output() putEvent: EventEmitter<any> = new EventEmitter();
+  @Output() moveEvent: EventEmitter<Move> = new EventEmitter();
+  @Output() clickEvent: EventEmitter<Move> = new EventEmitter();
   closedCards:Card[];
   id: string;
 
@@ -30,16 +32,34 @@ export class PlaypileComponent implements OnInit {
   public noClosedCards(): boolean {
     return this.closedCards.length == 0;
   }
+  
+  public remove(cardsToRemove: Card[]) {
+	let numberOfCards = cardsToRemove.length;
+	const index = this.cards.indexOf(cardsToRemove[0],0);
+	this.cards.splice(index, numberOfCards);
+  }
+  
+  public add(cardsToAdd: Card[]) {
+	if (!this.canPlace(cardsToAdd[0]) && this.cards.length > 0) {
+      this.closedCards.push(this.cards.pop());
+	}
+	cardsToAdd.forEach(card => {
+       this.cards.push(card);
+    });
+  }
 
   flip(){
     if (this.closedCards.length > 0 && this.cards.length == 0){
       this.cards = this.closedCards.splice(this.closedCards.length-1, this.closedCards.length);
-      this.putEvent.emit();
     }
   }
 
   getTopCard(): Card {
     return (this.cards == null || this.cards.length == 0) ? null : this.cards[this.cards.length -1];
+  }
+  
+  doubleClick(){
+	this.clickEvent.emit(new Move(this.id, "", [this.getTopCard()]));
   }
 
   drop(event: CdkDragDrop<Card[]>) {
@@ -55,7 +75,7 @@ export class PlaypileComponent implements OnInit {
       for (let cardRemoved of cardsRemoved){
         event.container.data.push(cardRemoved);
       }
-      this.putEvent.emit();
+      this.moveEvent.emit(new Move(event.previousContainer.id, event.container.id, cardsRemoved));
     }
   }
 

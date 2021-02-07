@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-welcome',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class WelcomeComponent {
 
+  constructor(private title:Title) {}
+
+  ngOnInit() {
+	this.title.setTitle("Epibratie")
+  }
 }

@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { Card } from "../card";
+import { Move } from "../move";
 
 @Component({
   selector: 'app-mainpile',
@@ -10,6 +11,8 @@ import { Card } from "../card";
 })
 export class MainpileComponent {
   @Input() cards: Card[];
+  @Output() moveEvent: EventEmitter<Move> = new EventEmitter();
+  @Output() clickEvent: EventEmitter<Move> = new EventEmitter();
   openCards: Card[] = new Array();
   mainpile: string = "mainpile";
 
@@ -20,6 +23,28 @@ export class MainpileComponent {
 
   public isEmpty(): boolean {
     return this.cards.length == 0 && this.openCards.length == 0;
+  }
+  
+  public remove(cardsToRemove: Card[]) {
+    if (this.openCards.length > 0) {
+	  let card = this.openCards.pop();
+	} else {
+	  this.cards = new Array();
+	}
+  }
+  
+  public add(cardsToAdd: Card[], fromMainPile: boolean) {
+	if (fromMainPile && cardsToAdd.length === 1) {
+	  this.cards.push(cardsToAdd[0]);
+	} else {
+	  cardsToAdd.forEach(card => {
+		this.openCards.push(card);
+	  });
+	}
+  }
+  
+  doubleClick(){
+	this.clickEvent.emit(new Move(this.mainpile, "", [this.getTopCard()]));
   }
 
   getColor(card: Card){
@@ -35,12 +60,16 @@ export class MainpileComponent {
   }
 
   flip(){
+	let flippedCards = [];
     if (this.cards.length > 0){
-      let topcard = this.cards.pop();
-      this.openCards.push(topcard);
+      let card = this.cards.pop();
+      this.openCards.push(card);
+	  flippedCards = [card];
     } else if (this.cards.length === 0 && this.openCards.length > 0){
+	  flippedCards = [...this.openCards];
       this.cards = this.openCards.reverse();
       this.openCards = new Array();
     }
+	this.moveEvent.emit(new Move(this.mainpile, this.mainpile, flippedCards));
   }
 }

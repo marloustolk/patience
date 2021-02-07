@@ -1,16 +1,15 @@
+* {
+  user-select:none;
+}
+
 .board {
-  background-color: #347575;
-  background-image: linear-gradient(30deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
-    linear-gradient(150deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
-    linear-gradient(30deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
-    linear-gradient(150deg, #3c8686 12%, transparent 12.5%, transparent 87%, #3c8686 87.5%, #3c8686),
-    linear-gradient(60deg, #2c6363 25%, transparent 25.5%, transparent 75%, #2c6363 75%, #2c6363),
-    linear-gradient(60deg, #2c6363 25%, transparent 25.5%, transparent 75%, #2c6363 75%, #2c6363);
   border: 5px solid #1c4040;
   box-shadow: inset 0px 0px 0px 1px #6b9191;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 14.2% 14.2% 14.2% 14.2% 14.2% 14.2% 14.2%;
+  background-repeat: no-repeat;
+  background-size: cover;
   grid-template-rows: 2% 24% 74%;
   height: 100%;
   position: absolute;
@@ -24,63 +23,66 @@
 .board-shape {
   margin: auto;
   position: relative;
+  height: 0px;
 }
 
 @media (min-width: 0) {
+  .menu {
+    width: 100%;
+	overflow: hidden;
+  }
   .board-shape {
     padding-top: 60%;
     width: 100%;
   }
   .board {
-    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
-    background-size:40px 70px;
+    background-image: url("/assets/images/grid-small.jpg");
   }
   .button {
     font-size: 3vw;
+	width: 31%;
   }
 }
 @media (min-width: 600px) and (orientation:landscape){
+  .menu {
+    width: 15%;
+	position: absolute;
+	left: 2.5%;
+	overflow: unset;
+  }
   .board-shape {
     padding-top: 40%;
     width: 65%;
+	margin-top: 5%;
   }
   .board {
-    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
-    background-size:80px 140px;
+    background-image: url("/assets/images/grid.jpg");
   }
   .button {
     font-size: 1.2vw;
+	width: auto;
   }
 }
 
 .menu {
-  width: 100%;
-  box-shadow: inset 0px 0px 0px 3px #1c4040;
-  overflow: hidden;
+  margin: auto;
   box-sizing: border-box;
   margin-bottom: 1vw;
 }
 
 .button {
-  background-color: #3c8686;
-  box-shadow: inset 0px 0px 0px 3px #2c6363;
-  box-sizing: border-box;
-  color: black;
   cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Monaco,Consolas,Lucida Console,monospace;
   float: left;
   padding: 1%;
   text-align: center;
   text-decoration-line: none;
-  width: 33.3%;
 }
 
 .button.dialog {
   width: 50%;
-}
-
-.button:hover {
-  background-color: #5b9c9c;
+  background-color: #3c8686;
+  color: white;
 }
 
 nav {
@@ -111,4 +113,23 @@ h1 {
   grid-row-end: 4;
   grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
   position: relative;
+}
+
+svg {
+  height: 40%;
+  width: 40%;
+  fill: #2c6565;
+}
+
+svg:hover {
+  fill: #3c8686;
+}
+
+.mat-dialog-title {
+  color: white;
+  font-family: Monaco,Consolas,Lucida Console,monospace;
+}
+::ng-deep.mat-dialog-container {
+    background-color: #67056d !important;
+	border: 1px solid white;
 }

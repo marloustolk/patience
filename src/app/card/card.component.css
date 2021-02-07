@@ -1,4 +1,4 @@
-@media (min-width: 0) {
+@media (orientation:portrait) {
   .card.main {
     background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
     background-size:40px 70px;
@@ -11,7 +11,7 @@
   }
 }
 
-@media (min-width: 600px) and (orientation:landscape){
+@media (orientation:landscape){
   .card.main {
     background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     background-size:80px 140px;
@@ -28,6 +28,7 @@
   background-color: #ececec;
   border-radius: 10%;
   box-shadow: inset 0px 0px 0px 1px #9999aa;
+  font-family: Monaco,Consolas,Lucida Console,monospace; 
   height: 95%;
   margin-top: 5%;
   margin-left: 10%;
@@ -36,25 +37,24 @@
 }
 
 .card.main {
-  background-color: #556;
-  background-image: linear-gradient(30deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
-    linear-gradient(150deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
-    linear-gradient(30deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
-    linear-gradient(150deg, #632c63 12%, transparent 12.5%, transparent 87%, #632c63 87.5%, #632c63),
-    linear-gradient(60deg, #400040 25%, transparent 25.5%, transparent 75%, #400040 75%, #400040),
-    linear-gradient(60deg, #400040 25%, transparent 25.5%, transparent 75%, #400040 75%, #400040);
+  background-color: #3c8686;
+  background-image: linear-gradient(30deg, #b10dbb 12%, transparent 12.5%, transparent 87%, #b10dbb 87.5%, #b10dbb),
+    linear-gradient(150deg, #b10dbb 12%, transparent 12.5%, transparent 87%, #b10dbb 87.5%, #b10dbb),
+    linear-gradient(30deg, #b10dbb 12%, transparent 12.5%, transparent 87%, #b10dbb 87.5%, #b10dbb),
+    linear-gradient(150deg, #b10dbb 12%, transparent 12.5%, transparent 87%, #b10dbb 87.5%, #b10dbb),
+    linear-gradient(60deg, #67056d 25%, transparent 25.5%, transparent 75%, #67056d 75%, #67056d),
+    linear-gradient(60deg, #67056d 25%, transparent 25.5%, transparent 75%, #67056d 75%, #67056d);
   box-shadow: inset 0px 0px 0px 2px #ffffff;
   vertical-align: middle;
 }
 
 .card:hover {
-  background-color:#ffffff;
   margin-left: 7.5%;
   width: 85%;
 }
 
 .card.main:hover {
-  background-color:#7b7b8c;
+  background-color:#5b9c9c;
 }
 
 p.top {

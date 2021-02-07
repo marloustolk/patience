@@ -4,6 +4,6 @@
 </div>
 <div class="pile" cdkDropList [id]='mainpile' [cdkDropListData]="openCards" >
   <app-card *ngIf="getSecondCard() as card" [card]="card" [closed]="false" [index]="0"></app-card>
-  <app-card *ngIf="getTopCard() as card" [card]="card" [closed]="false" [index]="1"></app-card>
+  <app-card *ngIf="getTopCard() as card" [card]="card" [closed]="false" [index]="1" (dblclick)="doubleClick()"></app-card>
 </div>
 <div class="pile"></div>

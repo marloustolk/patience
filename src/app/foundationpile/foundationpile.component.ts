@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 import { Card } from "../card";
+import { Move } from "../move";
 
 @Component({
   selector: 'app-foundationpile',
@@ -10,7 +11,7 @@ import { Card } from "../card";
 })
 export class FoundationpileComponent implements OnInit {
 @Input() nr: number;
-@Output() putEvent: EventEmitter<any> = new EventEmitter();
+@Output() moveEvent: EventEmitter<Move> = new EventEmitter();
 cards: Card[] = new Array();
 id: string;
 
@@ -21,8 +22,18 @@ id: string;
   public clear(){
     this.cards = new Array();
   }
+  
+  public remove(cardsToRemove: Card[]) {
+    this.cards.splice(0, 1);
+  }
+  
+  public add(cardsToAdd: Card[]) {
+	cardsToAdd.forEach(card => {
+       this.cards.unshift(card);
+    });
+  }
 
-  getTopCard(): Card {
+  public getTopCard(): Card {
     return (this.cards.length == 0) ? null : this.cards[0];
   }
 
@@ -36,7 +47,7 @@ id: string;
     if (this.canPlace(card)){
        let cardRemoved  = event.previousContainer.data.splice(index,1)[0];
        event.container.data.unshift(cardRemoved);
-       this.putEvent.emit();
+       this.moveEvent.emit(new Move(event.previousContainer.id, event.container.id, [card]));
     }
   }
 
