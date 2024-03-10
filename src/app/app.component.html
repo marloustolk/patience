@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<game-menu [name]=name (event)="checkEvent($event)"></game-menu>
+<div class="board-shape">
+  <div class="board" cdkDropListGroup>
+    <app-mainpile #mainpile [cards]="deck" (moveEvent)="checkWon($event)"
+      (clickEvent)="findPlaceFoundationPiles($event)"></app-mainpile>
+    <div class="foundationpiles">
+      <app-foundationpile #foundationpile *ngFor="let index of foundationpiles" [nr]="index"
+        (moveEvent)="checkWon($event)"></app-foundationpile>
+    </div>
+    <div class="playpiles">
+      <app-playpile #playpile *ngFor="let pile of playpileCards | keyvalue" [nr]="pile.key" [cards]="pile.value"
+        (moveEvent)="checkWon($event)" (clickEvent)="findPlaceFoundationPiles($event)"></app-playpile>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+:host {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 100%;
+  position: relative;
+}
+
+.pile {
+  height: 100%; 
+  position: relative;
+  width: 100%;
+}
+
+.empty {
+  border: 	#1c4040 solid 3px;
+  border-radius: 10%;
+  box-shadow: inset 0px 0px 0px 1px #6b9191;
+  height: 90%;
+  margin-top: 5%;
+  margin-left: 10%;
+  position: absolute;
+  width: 75%;
+  z-index: 0;
+}
+

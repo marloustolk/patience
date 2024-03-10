@@ -5,21 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { BoardComponent } from './board/board.component';
-import { BoardComponentDialog } from './board/board.component';
-import { CardComponent } from './card/card.component';
-import { FoundationpileComponent } from './foundationpile/foundationpile.component';
-import { MainpileComponent } from './mainpile/mainpile.component';
-import { PlaypileComponent } from './playpile/playpile.component';
+import { AppComponent, BoardComponentDialog } from './app.component';
+import { CardComponent } from './components/card/card.component';
+import { FoundationpileComponent } from './components/foundationpile/foundationpile.component';
+import { GameMenuComponent } from './components/game-menu/game-menu.component';
+import { MainpileComponent } from './components/mainpile/mainpile.component';
+import { PlaypileComponent } from './components/playpile/playpile.component';
 
 @NgModule({
   imports:      [ 
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
     DragDropModule,
     MatDialogModule
@@ -29,13 +25,12 @@ import { PlaypileComponent } from './playpile/playpile.component';
   ],
   declarations: [
     AppComponent,
-    BoardComponent,
     BoardComponentDialog,
-    CardComponent, 
+    CardComponent,
     FoundationpileComponent,
+    GameMenuComponent,
     MainpileComponent,
-    PlaypileComponent,
-    WelcomeComponent
+    PlaypileComponent
     ],
   bootstrap:    [ 
     AppComponent 

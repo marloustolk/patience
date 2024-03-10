@@ -1,9 +1,0 @@
-<div class="pile" (click)="flip()">
-  <app-card *ngIf="cards.length else empty" [closed]="true"></app-card>
-  <ng-template #empty><div class="empty"></div></ng-template>
-</div>
-<div class="pile" cdkDropList [id]='mainpile' [cdkDropListData]="openCards" >
-  <app-card *ngIf="getSecondCard() as card" [card]="card" [closed]="false" [index]="0"></app-card>
-  <app-card *ngIf="getTopCard() as card" [card]="card" [closed]="false" [index]="1" (dblclick)="doubleClick()"></app-card>
-</div>
-<div class="pile"></div>

@@ -1,0 +1,5 @@
+<div class="pile" cdkDropList [id]="id" [cdkDropListData]="cards" (cdkDropListDropped)="drop($event)">
+  <ng-template #empty><div class="empty"></div></ng-template>
+  <app-card *ngIf="getSecondCard() as card else empty" [card]="card" [closed]="false" [index]="1"></app-card>
+  <app-card *ngIf="getTopCard() as topcard" [card]="topcard" [closed]="false" [index]="2"></app-card>
+</div>

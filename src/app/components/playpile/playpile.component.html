@@ -1,0 +1,5 @@
+<div class="pile" cdkDropList [id]='id' [cdkDropListData]="cards" (cdkDropListDropped)="drop($event)" (click)="flip()">
+      <app-card *ngFor="let card of closedCards; index as i" [closed]="true" [index]="i" [card]="card"></app-card>
+      <app-card *ngFor="let card of cards; index as i" [closed]="false" [index]="i + closedCards.length" [card]="card" (dblclick)="doubleClick()"></app-card>
+      <div class="empty"></div>
+</div>
